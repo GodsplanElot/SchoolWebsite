@@ -1,4 +1,4 @@
- * {
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -9,11 +9,13 @@
     }
 
     .navbar {
-      background-color: #ffffff;
+      background-color: #fff;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       display: flex;
       align-items: center;
+      justify-content: space-between;
       padding: 10px 20px;
+      position: relative;
     }
 
     .navbar img {
@@ -21,23 +23,75 @@
       width: auto;
     }
 
+    .menu-icon,
+    .search-icon {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: 15px;
+    }
+
     .navbar ul {
       list-style: none;
       display: flex;
-      margin-left: auto;
+      align-items: center;
     }
 
     .navbar ul li {
       margin-left: 20px;
+      position: relative;
     }
 
     .navbar ul li a {
       text-decoration: none;
-      color: blue;
+      color: #333;
       font-weight: 500;
       transition: color 0.3s ease;
+      position: relative;
+      padding-bottom: 3px;
     }
 
-    .navbar ul li a:hover {
-      color: #000;
+    .navbar ul li a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #000;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .navbar ul li a:hover::after {
+      width: 100%;
+    }
+
+    .dropdown-icon {
+      font-size: 10px;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+
+    /* Responsive Menu */
+    @media (max-width: 768px) {
+      .navbar ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+
+      .navbar ul.show {
+        display: flex;
+      }
+
+      .menu-icon,
+      .search-icon {
+        display: block;
+      }
     }
