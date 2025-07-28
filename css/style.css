@@ -106,14 +106,44 @@
 
     .carousel-track {
       display: flex;
-      width: calc(100% * 8);
-      animation: slide 40s infinite linear;
+      transition: transform 0.5s ease-in-out;
     }
 
     .carousel-track img {
       width: 100vw;
       height: auto;
       flex-shrink: 0;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    .carousel-button {
+      background: rgba(255,255,255,0.7);
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 4px;
+    }
+
+    /* News Box */
+    .news-box {
+      background: #f2f2f2;
+      padding: 15px 20px;
+      width: 100%;
+      font-size: 16px;
+      color: #333;
+      margin-top: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     @keyframes slide {

@@ -24,10 +24,10 @@
     </div>
   </nav>
 
-    <div class="carousel">
-    <div class="carousel-track">
+ <div class="carousel">
+    <div class="carousel-track" id="carouselTrack">
       <img src="img/we_are_live.jpg" alt="Slide 1">
-      <img src="img/Tabernacle_chior.jpg" alt="Slide 2">
+      <img src="image2.jpg" alt="Slide 2">
       <img src="image3.jpg" alt="Slide 3">
       <img src="image4.jpg" alt="Slide 4">
       <img src="image5.jpg" alt="Slide 5">
@@ -35,13 +35,40 @@
       <img src="image7.jpg" alt="Slide 7">
       <img src="image8.jpg" alt="Slide 8">
     </div>
+    <div class="carousel-controls">
+      <button class="carousel-button" onclick="prevSlide()">&#10094;</button>
+      <button class="carousel-button" onclick="nextSlide()">&#10095;</button>
+    </div>
+  </div>
+
+  <div class="news-box">
+    🔔 Latest News: Welcome to our site! Stay tuned for more updates and exciting announcements.
   </div>
 
     <script>
       function toggleMenu() {
-        const nav = document.getElementById('navLinks');
-        nav.classList.toggle('show');
-      }
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('show');
+          }
+
+          const track = document.getElementById('carouselTrack');
+          let index = 0;
+
+          function showSlide(i) {
+            const total = track.children.length;
+            if (i >= total) index = 0;
+            else if (i < 0) index = total - 1;
+            else index = i;
+            track.style.transform = `translateX(-${index * 100}vw)`;
+          }
+
+          function nextSlide() {
+            showSlide(index + 1);
+          }
+
+          function prevSlide() {
+            showSlide(index - 1);
+          }
     </script>
 </body>
 </html>
